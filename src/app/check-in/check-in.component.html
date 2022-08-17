@@ -11,40 +11,40 @@
     <span class="success-text">Check-In Berhasil</span>
   </div>
 
-  <div class="info-card">
+  <form [formGroup]="checkInForm" class="info-card">
     <div class="card-user">
       <div class="info-group">
         <label for="username">Nama Lengkap</label>
-        <input type="text" id="username" value="username" />
+        <input type="text" id="username" formControlName="username" />
       </div>
       <div class="info-group">
         <label for="nik">Nomor Induk Kependudukan (NIK)</label>
-        <input type="text" id="nik" value="12344567232323" />
+        <input type="text" id="nik" formControlName="nik" />
       </div>
       <span class="separator"></span>
     </div>
     <div class="card-user">
       <div class="info-group">
         <label for="loc">Lokasi Check-In</label>
-        <input type="text" id="loc" value="Metland Mall Cileungsi" />
+        <input type="text" id="loc" formControlName="mall" />
       </div>
       <div class="info-group">
         <label for="tgl">Tanggal &amp; Waktu check-in</label>
-        <p class="date" id="tgl">{{ tglMasuk | date: 'd MMMM y, h:mm' }} WIB</p>
+        <p class="date" id="tgl">{{ tglMasuk | date: "d MMMM y, h:mm" }} WIB</p>
       </div>
       <div class="info-group">
         <label for="act">Kategori Aktivitas</label>
-        <p class="activity" id="act">Aktivitas Dalam Ruangan</p>
+        <p (click)="activitasOnClick()" class="activity" id="act">{{ activitas }}</p>
       </div>
       <span class="separator"></span>
     </div>
     <div class="card-user">
       <div class="barcode-card">
         <div class="code-container">
-          <img src="assets/img/qrcode.png" alt="">
+          <img src="assets/img/qrcode.png" alt="" />
         </div>
-        <button class="show-code">Lihat QR Code</button>
+        <button (click)="reloadPage()" class="show-code">Lihat QR Code</button>
       </div>
     </div>
-  </div>
+  </form>
 </div>

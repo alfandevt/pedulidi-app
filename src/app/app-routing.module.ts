@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CheckInComponent } from './check-in/check-in.component';
-import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
   {
