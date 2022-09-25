@@ -17,13 +17,13 @@ export class CheckInComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.setInitValue();
-    this.saveOnChange()
+    this.saveOnChange();
   }
 
-  title = "Check-In Berhasil"
-  isTitleChange = false
-  activitas = 'Aktivitas Dalam Ruangan'
-  isActivitasChange = false
+  title = 'Check-In';
+  isTitleChange = false;
+  activitas = 'Aktivitas Dalam Ruangan';
+  isActivitasChange = false;
 
   initForm(): void {
     this.checkInForm = new FormGroup({
@@ -34,13 +34,12 @@ export class CheckInComponent implements OnInit {
   }
 
   setInitValue(): void {
-    this.onDataChange()
+    this.onDataChange();
     this.tglMasuk = this.checkInService.getDate();
-    console.log(this.tglMasuk)
   }
 
   onDataChange(): void {
-    const data: CheckInInterface = this.checkInService.getUserData()
+    const data: CheckInInterface = this.checkInService.getUserData();
 
     this.checkInForm.patchValue({
       username: data.username,
@@ -50,32 +49,32 @@ export class CheckInComponent implements OnInit {
   }
 
   saveOnChange(): void {
-    this.checkInForm.valueChanges.subscribe(val => {
-      this.checkInService.setUserData(val)
-    })
+    this.checkInForm.valueChanges.subscribe((val) => {
+      this.checkInService.setUserData(val);
+    });
   }
 
   activitasOnClick(): void {
-    this.isActivitasChange = !this.isActivitasChange
+    this.isActivitasChange = !this.isActivitasChange;
 
     if (this.isActivitasChange) {
-      this.activitas = 'Aktivitas Dalam Ruangan'
+      this.activitas = 'Aktivitas Dalam Ruangan';
     } else {
-      this.activitas = 'Aktivitas Luar Ruangan'
+      this.activitas = 'Aktivitas Luar Ruangan';
     }
   }
 
   titleOnClick(): void {
-    this.isTitleChange = !this.isTitleChange
+    this.isTitleChange = !this.isTitleChange;
 
     if (this.isTitleChange) {
-      this.title = 'Check-In Berhasil'
+      this.title = 'Check-In';
     } else {
-      this.title = 'Check-Out Berhasil'
+      this.title = 'Check-Out';
     }
   }
 
   reloadPage(): void {
-    location.reload()
+    location.reload();
   }
 }

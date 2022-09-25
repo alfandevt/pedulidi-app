@@ -8,7 +8,9 @@
     <div class="marks">
       <i class="fas fa-check"></i>
     </div>
-    <span (click)="titleOnClick()" class="success-text">{{ title }}</span>
+    <span (click)="titleOnClick()" class="success-text"
+      >{{ title }} Berhasil</span
+    >
   </div>
 
   <form [formGroup]="checkInForm" class="info-card">
@@ -25,11 +27,11 @@
     </div>
     <div class="card-user">
       <div class="info-group">
-        <label for="loc">Lokasi Check-In</label>
+        <label for="loc">Lokasi {{ title }}</label>
         <input type="text" id="loc" formControlName="mall" />
       </div>
       <div class="info-group">
-        <label for="tgl">Tanggal &amp; Waktu check-in</label>
+        <label for="tgl">Tanggal &amp; Waktu {{ title }}</label>
         <p class="date" id="tgl">{{ tglMasuk }} WIB</p>
       </div>
       <div class="info-group">
