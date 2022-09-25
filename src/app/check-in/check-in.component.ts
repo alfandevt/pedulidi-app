@@ -20,6 +20,8 @@ export class CheckInComponent implements OnInit {
     this.saveOnChange()
   }
 
+  title = "Check-In Berhasil"
+  isTitleChange = false
   activitas = 'Aktivitas Dalam Ruangan'
   isActivitasChange = false
 
@@ -34,6 +36,7 @@ export class CheckInComponent implements OnInit {
   setInitValue(): void {
     this.onDataChange()
     this.tglMasuk = this.checkInService.getDate();
+    console.log(this.tglMasuk)
   }
 
   onDataChange(): void {
@@ -59,6 +62,16 @@ export class CheckInComponent implements OnInit {
       this.activitas = 'Aktivitas Dalam Ruangan'
     } else {
       this.activitas = 'Aktivitas Luar Ruangan'
+    }
+  }
+
+  titleOnClick(): void {
+    this.isTitleChange = !this.isTitleChange
+
+    if (this.isTitleChange) {
+      this.title = 'Check-In Berhasil'
+    } else {
+      this.title = 'Check-Out Berhasil'
     }
   }
 

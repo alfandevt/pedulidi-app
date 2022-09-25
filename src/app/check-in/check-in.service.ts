@@ -14,7 +14,14 @@ export class CheckInService {
   };
 
   getDate(): string {
-    return new Date().toLocaleString();
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }
+    return new Date().toLocaleString("id-ID", options);
   }
 
   // setUsername(username: string): void {
